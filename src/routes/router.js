@@ -3,8 +3,8 @@ const routerBlog = express.Router();
 
 routerBlog.get("/home", (req, res) => {
   const locals = {
-    title: "nodejs blog",
-    description: "simple blog create with nodejs, express && mongoDB",
+    title: "blog project",
+    description: "simple blog created with nodeJs, expressJs && mongoDB",
   };
 
   res.render("index", { locals }); // u can add multiple objects...
