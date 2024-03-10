@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- access to title and description in locals object -->
     <title><%= locals.title %></title>
     <meta name="description" content="<%= locals.description %>" />
     <link rel="stylesheet" href="/css/style.css" />
@@ -16,6 +17,7 @@
   <body>
     <div class="container">
       <%- include("../partials/header.ejs") %>
+      <!-- include the dynamic content from the BODY of the view being rendered (index, about) -->
       <main class="main"><%- body %></main>
       <%- include("../partials/footer.ejs") %>
     </div>

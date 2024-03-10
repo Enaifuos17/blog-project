@@ -7,7 +7,7 @@ routerBlog.get("/home", (req, res) => {
     description: "simple blog create with nodejs, express && mongoDB",
   };
 
-  res.render("index", { locals });
+  res.render("index", { locals }); // u can add multiple objects...
 });
 
 routerBlog.get("/about", (req, res) => {

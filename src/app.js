@@ -9,10 +9,11 @@ const routerBlog = require("./routes/router");
 const app = express();
 const PORT = process.env.PORT;
 
+// middleware to serve static files from "public" directory
 app.use(express.static("public"));
 
 // middlwr - template engine
-app.use(expressLayout);
+app.use(expressLayout); // middleware to let express app use expressLayout
 app.set("layout", "./layouts/main");
 app.set("view engine", "ejs");
 
