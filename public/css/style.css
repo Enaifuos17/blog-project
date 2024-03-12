@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap");
+
+:root {
+  --back: #1c1c1c;
+  --gray: #7e7e7e;
+  --gray-light: #e4e4e4;
+  --font-size-base: 1rem;
+  --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+  --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+  --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  border-radius: 10px;
+}
+
+body {
+  font-family: "Ojuju", sans-serif;
+  color: var(--back);
+  font-size: var(--font-size-base);
+  background-color: #faf5ee;
+  background-image: url("/img/img-noise-361x370.png");
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+  font-family: "Ojuju", sans-serif;
+  font-size: var(--font-size-base);
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.7rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background-color: var(--back);
+  border: none;
+  color: #fff;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-delete {
+  padding: 10px 16px;
+  background-color: red;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* Start Layout */
+
+.container {
+  max-width: 982px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.main {
+  padding: 20px 0;
+  /* background-color: rgb(143, 143, 163); */
+}
+
+/* End Layout */
+
+/* - - - - - - - - - - - */
+
+/* Start Hero Section */
+
+.hero-img {
+  /* max-height: 528px; */
+  filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* End Hero Section */
+
+/* - - - - - - - - - - - */
+
+/* Start Header */
+
+.header {
+  border: 1px solid red;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  padding-top: 10px;
+  grid-template-areas:
+    "logo button"
+    "menu menu";
+}
+
+/* when we start resize (nsghru) the menu will go down */
+/* this mediaQuery is not for mobile, (its like the tailwind concept) */
+@media only screen and (min-width: 768px) {
+  .header {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo menu button";
+  }
+}
+
+.header-logo {
+  grid-area: logo;
+  font-weight: 800;
+  font-size: 25px;
+  text-decoration: none;
+  color: #1c1c1c;
+  transition: 0.2s linear;
+  border: 1px solid blue;
+}
+
+.header-logo:hover {
+  color: var(--gray);
+}
+
+.header-nav {
+  grid-area: menu;
+  display: flex;
+  justify-content: center;
+}
+
+.header-button {
+  grid-area: button;
+  display: flex;
+  justify-content: end;
+}
+
+.header-button button {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  border: 0;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 2px solid var(--gray-light);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--back);
+  cursor: pointer;
+  transition: border 0.2s linear;
+}
+
+.header-button button:hover {
+  border: 2px solid var(--back);
+}
+
+/* header ==> navigation */
+.header-nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  font-weight: 600;
+  padding: 0;
+  border: 1px solid red;
+}
+
+.header-nav ul a {
+  padding: 10px;
+  text-decoration: none;
+  color: rgb(34, 12, 198);
+  border: 1px solid blue;
+}
+
+.header-nav ul a:hover {
+  text-decoration: underline;
+}
+
+.header-nav ul a.active {
+  color: red;
+}
+
+/* End Header */
+
+/* - - - - - - - - - - - */
+
+/* Start Index */
+
+/* Start Author Section */
+
+.author {
+  border: 1px solid red;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.author-heading {
+  border: 1px solid green;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.author-body {
+  border: 1px solid black;
+  margin: 5px 0 40px 0;
+}
+
+/* End Author Section */
+
+/* Start Article Section */
+
+.article-heading {
+  border: 1px solid blue;
+  margin-top: 4rem;
+  font-weight: 400;
+}
+
+.article-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+}
+
+.article-list-date {
+  font-size: var(--font-size-base);
+  color: var(--gray);
+  width: 260px;
+  display: inline-block;
+}
+
+.article-ul li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  margin: 18px 0;
+  font-weight: 600;
+}
+
+/* laptop screens */
+@media only screen and (min-width: 768px) {
+  .article-ul li a {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .article-list-date {
+    text-align: right;
+  }
+}
+
+.article-ul li {
+  font-size: 24px;
+  cursor: pointer;
+  transition: filter 0.1s;
+}
+
+.article-ul li:not(:last-child) {
+  border-bottom: 1px solid var(--back);
+}
+
+.article-ul li:hover {
+  filter: none;
+}
+
+.article-ul:hover li {
+  filter: blur(3px);
+}
+
+.article-ul:hover li:hover {
+  filter: none;
+}
+
+/* * ****** * */
+.article {
+  /* white-space: pre-wrap; */
+}
+
+/* End Article Section */
+
+.pagination {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--gray);
+  text-decoration: none;
+  margin-top: 40px;
+  display: inline-block;
+  transition: 0.2s linear;
+  border: 1px solid green;
+}
+
+.pagination:hover {
+  color: var(--back);
+}
+
+/* End Index */
+
+/* - - - - - - - - - - - */
+
+/* Start Footer */
+
+.footer {
+  border: 1px solid brown;
+  margin: 4rem;
+  text-align: center;
+  color: #000;
+  font-weight: 600;
+}
+
+/* End Footer */
