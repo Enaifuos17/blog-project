@@ -159,6 +159,7 @@ img {
   color: var(--back);
   cursor: pointer;
   transition: border 0.2s linear;
+  background-color: transparent;
 }
 
 .header-button button:hover {
@@ -323,3 +324,77 @@ img {
 }
 
 /* End Footer */
+
+/* - - - - - - - - - - - */
+
+/* Start Search */
+
+.search-bar {
+  visibility: hidden;
+  transform: translateY(-100px);
+  background-color: var(--back);
+  padding: 4px 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.search-bar.open {
+  transform: translateY(0);
+  transition: transform 0.8s;
+}
+
+.search-bar input {
+  margin: 0;
+  padding: 0;
+}
+
+#searchClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--gray-light);
+  padding: 15px;
+}
+
+/* End Search */
+
+/* 4:13 */
+
+/* - - - - - - - - - - - */
+
+/* Start Dashboard Admin */
+
+.admin-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-posts {
+  padding: 0;
+  margin: 0;
+}
+
+.admin-post-controls form {
+  display: inline-block;
+}
+
+.admin-post-controls .btn {
+  display: inline-block;
+  background-color: var(--back);
+  color: var(--gray-light);
+  border: 0;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  line-height: 2;
+}
+
+.admin-posts li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+/* End Dashboard Admin */
