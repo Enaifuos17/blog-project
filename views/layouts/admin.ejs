@@ -7,7 +7,7 @@
     <title><%= locals.title %></title>
     <meta name="description" content="<%= locals.description %>" />
     <link rel="stylesheet" href="/css/style.css" />
-    <script type="text/javascript" defer src="/js/script.js"></script>
+    <script type="text/javascript" defer src="js/script_admin.js"></script>
     <!-- remixicons -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
@@ -17,9 +17,8 @@
     <link rel="icon" href="/img/blog-browser-icon-2.png" />
   </head>
   <body>
-    <%- include("../partials/searchBar.ejs") %>
     <div class="container">
-      <%- include("../partials/header.ejs") %>
+      <%- include("../partials/header_admin.ejs") %>
       <!-- include the dynamic content from the BODY of the view being rendered (index, about) -->
       <main class="main"><%- body %></main>
       <%- include("../partials/footer.ejs") %>

@@ -49,12 +49,20 @@ textarea {
 
 .btn {
   background-color: var(--back);
+  opacity: 0.9;
   border: none;
   color: #fff;
-  padding: 16px 32px;
+  padding: 14px 32px;
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s linear;
+}
+
+.btn:hover {
+  background-color: #000;
+  opacity: 1;
 }
 
 .btn-delete {
@@ -355,6 +363,8 @@ img {
   right: 0;
   color: var(--gray-light);
   padding: 15px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 /* End Search */
@@ -398,3 +408,14 @@ img {
 }
 
 /* End Dashboard Admin */
+
+/* - - - - - - - - - - - */
+
+/* Start Register */
+
+#registerForm,
+#registerTitle {
+  display: none;
+}
+
+/* End Register */

@@ -6,6 +6,7 @@ const express = require("express");
 const expressLayout = require("express-ejs-layouts");
 const routerBlog = require("./routes/router");
 const connectDB = require("./config/db");
+const routerAdmin = require("./routes/admin");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -21,8 +22,13 @@ app.set("view engine", "ejs");
 // connect DB
 connectDB();
 
+// middlewares
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // route
-app.use("/blog", routerBlog);
+app.use(routerBlog);
+app.use(routerAdmin);
 
 // run the server
 app.listen(PORT, () => {

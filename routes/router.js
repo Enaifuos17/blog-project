@@ -1,51 +1,18 @@
 const express = require("express");
 const PostModel = require("../models/post-model");
+const { displayPosts } = require("../controllers/posts/display-posts");
+const { getPostByID } = require("../controllers/posts/get-post-by-id");
+const { searchPost } = require("../controllers/posts/search-post");
 const routerBlog = express.Router();
 
-routerBlog.get("/home", async (req, res) => {
-  try {
-    const locals = {
-      title: "blog project",
-      description: "simple blog created with nodeJs, expressJs && mongoDB",
-    };
+/**
+ *  @desc get all posts
+ *  @route /home
+ *  @method GET
+ *  @access public
+ */
 
-    let perPage = 5; // display 10 posts per page
-    let page = req.query.page || 1;
-
-    //
-    const data = await PostModel.aggregate([{ $sort: { createdAt: -1 } }])
-      .skip(perPage * page - perPage)
-      .limit(perPage)
-      .exec();
-
-    const count = await PostModel.countDocuments();
-    const nextPage = parseInt(page) + 1;
-    const hasNextPage = nextPage <= Math.ceil(count / perPage);
-
-    res.render("index", {
-      locals,
-      data,
-      current: page,
-      nextPage: hasNextPage ? nextPage : null,
-    }); // u can add multiple objects...
-  } catch (err) {
-    console.log(`Something wrong! ${err}`);
-  }
-});
-
-// routerBlog.get("/home", async (req, res) => {
-//   const locals = {
-//     title: "blog project",
-//     description: "simple blog created with nodeJs, expressJs && mongoDB",
-//   };
-
-//   try {
-//     const data = await PostModel.find(); // find all the posts
-//     res.render("index", { locals, data }); // u can add multiple objects...
-//   } catch (err) {
-//     console.log(`Something wrong! ${err}`);
-//   }
-// });
+routerBlog.get("/home", displayPosts);
 
 // func - insertMany (CHECK)
 // function insertPostData() {
@@ -93,6 +60,22 @@ routerBlog.get("/home", async (req, res) => {
 //   ]);
 // }
 // insertPostData();
+
+/**
+ *  @desc get post by id
+ *  @route /post/:id
+ *  @method GET
+ *  @access public
+ */
+routerBlog.get("/post/:id", getPostByID);
+
+/**
+ *  @desc search
+ *  @route /search
+ *  @method POST
+ *  @access public
+ */
+routerBlog.post("/search", searchPost);
 
 routerBlog.get("/about", (req, res) => {
   res.render("about");
