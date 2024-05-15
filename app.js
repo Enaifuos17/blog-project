@@ -8,6 +8,10 @@ const routerBlog = require("./routes/router");
 const connectDB = require("./config/db");
 const routerAdmin = require("./routes/admin");
 
+const cookieParser = require("cookie-parser");
+const MongoStore = require("connect-mongo");
+const session = require("express-session");
+
 const app = express();
 const PORT = process.env.PORT;
 
@@ -25,6 +29,19 @@ connectDB();
 // middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser()); // cookie parser
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
+    // cookie: { maxAge: new Date(Date.now() + (3600000) ) },
+  })
+);
 
 // route
 app.use(routerBlog);
