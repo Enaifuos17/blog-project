@@ -171,6 +171,73 @@ routerAdmin.post("/add-post", authMiddleware, async (req, res) => {
 });
 
 /**
+ *  @desc admin - edit post
+ *  @route /edit-post
+ *  @method GET
+ *  @access public
+ */
+
+routerAdmin.get("/edit-post/:id", authMiddleware, async (req, res) => {
+  try {
+    // console.log(req.body);
+    const locals = {
+      title: "Edit Post",
+      description: "simple blog created with nodeJs, expressJs && mongoDB",
+    };
+
+    const data = await PostModel.findOne({
+      _id: req.params.id,
+    });
+
+    res.render("admin/edit-post", {
+      locals,
+      data,
+      layout: adminLayout,
+    });
+  } catch (err) {
+    console.log(`Something wrong!!! ${err}`);
+  }
+});
+
+/**
+ *  @desc admin - edit post
+ *  @route /edit-post
+ *  @method PUT
+ *  @access public
+ */
+
+routerAdmin.put("/edit-post/:id", authMiddleware, async (req, res) => {
+  try {
+    // console.log(req.body);
+    await PostModel.findByIdAndUpdate(req.params.id, {
+      title: req.body.title,
+      body: req.body.body,
+      updatedAt: Date.now(),
+    });
+
+    res.redirect(`/edit-post/${req.params.id}`);
+  } catch (err) {
+    console.log(`Something wrong!!! ${err}`);
+  }
+});
+
+/**
+ *  @desc admin - delete a post
+ *  @route /add-post
+ *  @method DELETE
+ *  @access public
+ */
+
+routerAdmin.delete("/delete-post/:id", authMiddleware, async (req, res) => {
+  try {
+    await PostModel.deleteOne({ _id: req.params.id }); // delete post by id
+    res.redirect("/dashboard");
+  } catch (err) {
+    console.log(`Something wrong!!! ${err}`);
+  }
+});
+
+/**
  *  @desc admin - register
  *  @route /register
  *  @method POST
@@ -194,6 +261,22 @@ routerAdmin.post("/register", async (req, res) => {
     }
   } catch (err) {
     console.log(`Something wrong 222! ${err}`);
+  }
+});
+
+/**
+ *  @desc admin - logout
+ *  @route /logout
+ *  @method GET
+ *  @access public
+ */
+routerAdmin.get("/logout", async (req, res) => {
+  try {
+    res.clearCookie("token");
+    // res.json({ message: "Logged out successfully!" });
+    res.redirect("/home");
+  } catch (err) {
+    console.log(`Something wrong with the Logout! ${err}`);
   }
 });
 

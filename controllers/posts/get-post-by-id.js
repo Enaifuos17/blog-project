@@ -8,7 +8,7 @@ const getPostByID = async (req, res) => {
       title: data.title,
       description: data.body,
     };
-    res.render("post", { locals, data });
+    res.render("post", { locals, data, currentRoute: `/post/${postID}` });
   } catch {
     console.log(`Something wrong! ${err}`);
   }

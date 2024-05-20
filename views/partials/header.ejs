@@ -2,9 +2,23 @@
   <a href="/home" class="header-logo">Logo</a>
   <nav class="header-nav">
     <ul>
-      <li><a href="/home">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li>
+        <a href="/home" class="<%= isActiveRoute('/home', currentRoute) %>"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a href="/about" class="<%= isActiveRoute('/about', currentRoute) %>"
+          >About</a
+        >
+      </li>
+      <li>
+        <a
+          href="/contact"
+          class="<%= isActiveRoute('/contact', currentRoute) %>"
+          >Contact</a
+        >
+      </li>
     </ul>
   </nav>
   <div class="header-button">

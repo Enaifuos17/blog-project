@@ -29,6 +29,7 @@ const displayPosts = async (req, res) => {
       data,
       current: page,
       nextPage: hasNextPage ? nextPage : null,
+      currentRoute: "/home",
     }); // u can add multiple objects...
   } catch (err) {
     console.log(`Something wrong! ${err}`);

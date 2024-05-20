@@ -78,7 +78,7 @@ routerBlog.get("/post/:id", getPostByID);
 routerBlog.post("/search", searchPost);
 
 routerBlog.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about", { currentRoute: "/about" });
 });
 
 module.exports = routerBlog;
