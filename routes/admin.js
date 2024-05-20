@@ -87,7 +87,7 @@ routerAdmin.post("/admin", async (req, res) => {
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      return res.status(401).json({ message: "INVALIIIIID!" });
+      return res.status(401).json({ message: "INVALIIIIID PWD!" });
     }
 
     const token = jwt.sign({ userId: user._id }, jwtSecret);
@@ -100,12 +100,74 @@ routerAdmin.post("/admin", async (req, res) => {
 
 /**
  *  @desc admin dashboard
- *  @route /admin
+ *  @route /dashboard
  *  @method GET
  *  @access public
  */
 routerAdmin.get("/dashboard", authMiddleware, async (req, res) => {
-  res.render("admin/dashboard");
+  try {
+    const locals = {
+      title: "dashboard",
+      description: "simple blog created with nodeJs, expressJs && mongoDB",
+    };
+
+    const data = await PostModel.find();
+    res.render("admin/dashboard", {
+      locals,
+      data,
+      layout: adminLayout,
+    });
+  } catch (err) {
+    console.log(`Something wrong!!! ${err}`);
+  }
+});
+
+/**
+ *  @desc admin - create new post
+ *  @route /add-post
+ *  @method GET
+ *  @access public
+ */
+
+routerAdmin.get("/add-post", authMiddleware, async (req, res) => {
+  try {
+    const locals = {
+      title: "Add Post",
+      description: "simple blog created with nodeJs, expressJs && mongoDB",
+    };
+
+    res.render("admin/add-post", {
+      locals,
+      layout: adminLayout,
+    });
+  } catch (err) {
+    console.log(`Something wrong!!! ${err}`);
+  }
+});
+
+/**
+ *  @desc admin - create new post
+ *  @route /add-post
+ *  @method POST
+ *  @access public
+ */
+
+routerAdmin.post("/add-post", authMiddleware, async (req, res) => {
+  try {
+    // console.log(req.body);
+    try {
+      const newPost = new PostModel({
+        title: req.body.title,
+        body: req.body.body,
+      });
+      await PostModel.create(newPost); // create a new post
+      res.redirect("/dashboard");
+    } catch (err) {
+      console.log(`err here :( ${err}`);
+    }
+  } catch (err) {
+    console.log(`Something wrong!!! ${err}`);
+  }
 });
 
 /**
