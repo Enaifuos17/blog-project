@@ -81,4 +81,8 @@ routerBlog.get("/about", (req, res) => {
   res.render("about", { currentRoute: "/about" });
 });
 
+routerBlog.get("/contact", (req, res) => {
+  res.render("contact", { currentRoute: "/contact" });
+});
+
 module.exports = routerBlog;
