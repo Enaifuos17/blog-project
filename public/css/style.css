@@ -340,7 +340,8 @@ img {
 .search-bar {
   visibility: hidden;
   transform: translateY(-100px);
-  background-color: var(--back);
+  /* background-color: var(--back); */
+  /* background-color: red; */
   padding: 4px 0;
   position: absolute;
   left: 0;
@@ -359,12 +360,13 @@ img {
 
 #searchClose {
   position: absolute;
-  top: 0;
+  top: -10px; /* 0 */
   right: 0;
   color: var(--gray-light);
   padding: 15px;
   cursor: pointer;
   font-weight: 600;
+  /* border: 1px solid red; */
 }
 
 /* End Search */
@@ -419,3 +421,23 @@ img {
 }
 
 /* End Register */
+
+/* - - - - - - - - - - - */
+
+/* icons */
+
+.ri-close-line {
+  font-size: 1.5rem;
+  color: var(--gray);
+  transition: 0.1s;
+}
+
+.ri-close-line:hover {
+  color: var(--back);
+}
+
+/* - - - - - - - - - - - */
+
+#searchInput {
+  outline: none;
+}

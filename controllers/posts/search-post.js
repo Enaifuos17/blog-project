@@ -17,7 +17,7 @@ const searchPost = async (req, res) => {
       ],
     });
 
-    res.render("search", { locals, data });
+    res.render("search", { locals, data, currentRoute: "/search" });
     // res.send(searchNoSpecialChar);
   } catch (err) {
     console.log(`Something wrong! ${err}`);
