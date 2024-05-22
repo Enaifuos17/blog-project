@@ -12,7 +12,7 @@ const routerBlog = express.Router();
  *  @access public
  */
 
-routerBlog.get("/home", displayPosts);
+routerBlog.get("/", displayPosts); // /home
 
 // func - insertMany (CHECK)
 // function insertPostData() {

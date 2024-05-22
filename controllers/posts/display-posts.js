@@ -23,13 +23,16 @@ const displayPosts = async (req, res) => {
     const nextPage = parseInt(page) + 1;
     const hasNextPage = nextPage <= Math.ceil(count / perPage);
 
+    // const lastPage = page > 1 ? page - 1 : null; // *
+
     // index => ejs page
     res.render("index", {
       locals,
       data,
       current: page,
       nextPage: hasNextPage ? nextPage : null,
-      currentRoute: "/home",
+      // lastPage: lastPage, // *
+      currentRoute: "/", // /home
     }); // u can add multiple objects...
   } catch (err) {
     console.log(`Something wrong! ${err}`);

@@ -274,7 +274,7 @@ routerAdmin.get("/logout", async (req, res) => {
   try {
     res.clearCookie("token");
     // res.json({ message: "Logged out successfully!" });
-    res.redirect("/home");
+    res.redirect("/"); // /home
   } catch (err) {
     console.log(`Something wrong with the Logout! ${err}`);
   }

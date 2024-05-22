@@ -424,7 +424,7 @@ img {
 
 /* - - - - - - - - - - - */
 
-/* icons */
+/* edits */
 
 .ri-close-line {
   font-size: 1.5rem;
@@ -436,8 +436,65 @@ img {
   color: var(--back);
 }
 
-/* - - - - - - - - - - - */
-
 #searchInput {
   outline: none;
 }
+
+#logoutLink {
+  border: 1px solid red;
+  color: var(--back);
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+#logoutLink:hover {
+  color: #7e7e7e;
+}
+
+#addNew,
+#backLink {
+  border: 1px solid red;
+  color: var(--back);
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+#addNew:hover,
+#backLink:hover {
+  /* transform: rotate(40deg); */ /* IT DOESNT WORK */
+  color: #7e7e7e;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+#editBtn,
+#deleteBtn {
+  /* border: 1px solid red; */
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+/* #editBtn:hover,
+#deleteBtn:hover {
+  color: #7e7e7e;
+} */
+
+#liLink,
+#ghLink {
+  text-decoration: none;
+  color: rgb(52, 52, 157);
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+#liLink:hover,
+#ghLink:hover {
+  color: #521fec;
+}
+
+/* - - - - - - - - - - - */
