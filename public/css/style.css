@@ -108,7 +108,7 @@ img {
 /* Start Header */
 
 .header {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 1fr;
@@ -135,7 +135,7 @@ img {
   text-decoration: none;
   color: #1c1c1c;
   transition: 0.2s linear;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .header-logo:hover {
@@ -181,22 +181,23 @@ img {
   gap: 1rem;
   font-weight: 600;
   padding: 0;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .header-nav ul a {
   padding: 10px;
   text-decoration: none;
-  color: rgb(34, 12, 198);
-  border: 1px solid blue;
+  color: var(--gray);
+  /* border: 1px solid blue; */
 }
 
 .header-nav ul a:hover {
   text-decoration: underline;
+  color: rgb(34, 12, 198);
 }
 
 .header-nav ul a.active {
-  color: red;
+  color: rgb(34, 12, 198);
 }
 
 /* End Header */
@@ -208,19 +209,19 @@ img {
 /* Start Author Section */
 
 .author {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 10px 0;
   text-align: center;
 }
 
 .author-heading {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
 .author-body {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: 5px 0 40px 0;
 }
 
@@ -229,7 +230,7 @@ img {
 /* Start Article Section */
 
 .article-heading {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin-top: 4rem;
   font-weight: 400;
 }
@@ -241,7 +242,7 @@ img {
   font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .article-list-date {
@@ -310,7 +311,7 @@ img {
   margin-top: 40px;
   display: inline-block;
   transition: 0.2s linear;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .pagination:hover {
@@ -324,7 +325,7 @@ img {
 /* Start Footer */
 
 .footer {
-  border: 1px solid brown;
+  /* border: 1px solid brown; */
   margin: 4rem;
   text-align: center;
   color: #000;
@@ -342,7 +343,7 @@ img {
   transform: translateY(-100px);
   /* background-color: var(--back); */
   /* background-color: red; */
-  padding: 4px 0;
+  padding: 80px 0;
   position: absolute;
   left: 0;
   right: 0;
@@ -356,14 +357,17 @@ img {
 .search-bar input {
   margin: 0;
   padding: 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 5px;
 }
 
 #searchClose {
   position: absolute;
-  top: -10px; /* 0 */
+  top: 0; /* 0 */
   right: 0;
   color: var(--gray-light);
-  padding: 15px;
+  padding: 80px 15px;
   cursor: pointer;
   font-weight: 600;
   /* border: 1px solid red; */
@@ -441,7 +445,7 @@ img {
 }
 
 #logoutLink {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   color: var(--back);
   text-decoration: none;
   font-weight: 700;
@@ -454,7 +458,7 @@ img {
 
 #addNew,
 #backLink {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   color: var(--back);
   text-decoration: none;
   font-weight: 700;
